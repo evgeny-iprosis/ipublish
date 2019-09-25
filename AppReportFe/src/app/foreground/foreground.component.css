@@ -1,0 +1,12 @@
+.topBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: #e8eaed;
+  color: #202124;
+  font-size: 2.1rem;
+  text-align: center;
+  line-height: 5rem;
+}

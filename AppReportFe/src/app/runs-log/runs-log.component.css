@@ -1,0 +1,38 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 7rem;
+  padding-bottom: 16px;
+  background-color: rgba(236, 239, 241, 0.54);
+  overflow: auto;
+  max-width: 1024px;
+}
+
+.logTable {
+  width: 100%;
+  margin: 16px 32px;
+}
+
+.logTable th,
+td {
+  width: 25%;
+  text-align: left;
+  font-size: 0.7rem;
+}
+th {
+  padding-bottom: 16px;
+}
+
+.buttons {
+  margin: 16px 0;
+}
+
+.buttons > button {
+  margin-left: 8px;
+}
