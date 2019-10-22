@@ -13,6 +13,7 @@ exports.takeSS = function(email) {
     await page.setViewport({ width: 800, height: 600 });
     var url = 'http://zolotomet.com';
 
+
     console.log('url : ', url);
     //await page.goto(url);
     var startDate = new Date();
