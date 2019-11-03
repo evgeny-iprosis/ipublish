@@ -73,12 +73,15 @@ app.get('/success', (req, res) => {
 // 	const args = {
 // 		url:
 // 			'http://35.156.190.99:8080/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=AXb0jR1xevFLlX5hpPUGu.4',
+//
 // 		width: 800,
 // 		height: 600,
 // 		email: 'evgeny.grin@gmail.com',
 // 		login: 'administrator',
 // 		password: 'iProsis!@3'
 // 	};
+// http://35.156.190.99:8080/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=Abqco7oLeMNBj.6x6FtcIJ0&APP_TO_LAUNCH=APP20190827
+//
 // 	//pup.snapshotNonSecure(args);
 // 	pup.snapshotSecure(args);
 // 	//return res.redirect("/success");
@@ -91,18 +94,29 @@ app.get('/reports', (req, res) => {
 });
 
 app.post('/newcshedule', (req, res) => {
-	console.log('Got post job request : ');
-	console.log(req.body);
 	let newSchedule = req.body;
 	res.status(200).json(newSchedule);
-
 	let calculatedInterval = newSchedule.interval * newSchedule.intervalUnit;
 	let url = newSchedule.url;
+
+	// check if app defined by cuid
+	if (newSchedule.cuid) {
+		// TODO - get server automatically
+		// currenttly use iProsis BO server
+		let serverUrl = 'http://35.156.190.99:8080';
+		// TODO efine it in env
+		let standardBOAppPrefix =
+			'BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=';
+		url = serverUrl + '/' + standardBOAppPrefix + newSchedule.cuid;
+
+		console.log('Run by UUID :');
+		console.log(url);
+		return;
+	}
 	if (newSchedule.user) {
 		url = url + '?USER=' + newSchedule.user;
 	}
 	delete newSchedule.id;
-
 	const args = {
 		url: url,
 		width: newSchedule.width,
@@ -126,10 +140,13 @@ app.post('/newcshedule', (req, res) => {
 });
 
 app.post('/newapp', (req, res) => {
-	console.log('Got new app request : ');
-	console.log(req.body);
 	let newApp = req.body;
-	Application.add(newApp);
+	Application.add(newApp, err => {
+		if (err) {
+			console.log('Error inserting application');
+			console.log(err.message);
+		}
+	});
 	res.status(201).json();
 });
 
@@ -143,7 +160,14 @@ app.get('/delapp/:id', (req, res) => {
 });
 
 app.get('/listapps', (req, res) => {
-	Application.all((err, applications) => res.status(200).json(applications));
+	Application.all((err, applications) => {
+		if (err) {
+			console.log('Error getting applications list');
+			console.log(err.message);
+		} else {
+			res.status(200).json(applications);
+		}
+	});
 });
 
 app.get('/listschedules', (req, res) => {

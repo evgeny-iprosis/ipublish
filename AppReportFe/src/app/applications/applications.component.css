@@ -73,3 +73,25 @@
 .scheduler > button {
   margin-left: 8px;
 }
+
+.typeRadios {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  margin-right: 2rem;
+  transform: translate(0, 100%);
+  margin-bottom: 2rem;
+}
+
+.newAppInput {
+  margin-top: 2rem;
+}
+
+.typeCuid {
+  margin-right: 0.5rem;
+}
+
+.typeUrl {
+  margin-right: 0.5rem;
+  margin-left: 2rem;
+}

@@ -13,15 +13,11 @@ export class AppserviceService {
   constructor(private http: HttpClient) {}
 
   createApp(appData) {
-    console.log('Just before post - appData: ');
-    console.log(appData);
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-
     return this.http.post(this.newAppUrl, JSON.stringify(appData), httpOptions);
   }
 

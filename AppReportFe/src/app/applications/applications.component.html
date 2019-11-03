@@ -2,7 +2,7 @@
 	<div class="appHeader">
 		<div class="row">
 			<div class="col-md-4"> Application Name </div>
-			<div class="col-md-8">Application URL</div>
+			<div class="col-md-8">Application URL/CUID</div>
 		</div>
 
 	</div>
@@ -14,14 +14,20 @@
 		<div class="newAppHeader">
 			Add New Application:
 		</div>
-		<div class="form-group col-md-4">
+
+		<div class="typeRadios">
+			<input type="radio" [(ngModel)]="appType" value="CUID" class="typeCuid" id="typeCuid" name="typeCuid">CUID
+			<input type="radio" [(ngModel)]="appType" value="URL" class="typeUrl" id="typeUrl" name="typeUrl">URL
+		</div>
+
+		<div class="form-group col-md-4 newAppInput">
 			<input type="text" [(ngModel)]="newAppData.name" class="form-control" id="newAppName" name="newAppName"
 				placeholder="Enter Name">
 		</div>
 
-		<div class="form-group col-md-8">
+		<div class="form-group col-md-8 newAppInput">
 			<input type="text" [(ngModel)]="newAppData.url" class="form-control inputLine" id="newAppUrl"
-				name="newAppUrl" placeholder="Enter URL">
+				name="newAppUrl" placeholder="Enter {{appType}}">
 		</div>
 
 		<div class="saveBottom">

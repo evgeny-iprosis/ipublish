@@ -17,9 +17,11 @@ import { PostJobService } from '../post-job.service';
 export class ApplicationsComponent implements OnInit {
   apps: OneApp[];
   schedules: Schedule[];
-  newAppData: OneApp = { id: 0, name: '', url: '' };
+  newAppData: OneApp = { id: 0, name: '', url: '', cuid: '' };
   newAppFormOn = false;
   topHeader = 'Application Manager';
+  appType = 'CUID';
+  placeText = 'Enter CUID';
 
   constructor(
     private appService: AppserviceService,
@@ -36,10 +38,6 @@ export class ApplicationsComponent implements OnInit {
       results => {
         this.apps = results[0];
         this.schedules = results[1];
-        console.log('Apps : ');
-        console.log(this.apps);
-        console.log('Schedules :');
-        console.log(this.schedules);
       },
       error => {
         console.log('Error in getApps response : ', error);
@@ -56,13 +54,16 @@ export class ApplicationsComponent implements OnInit {
   }
 
   createApp() {
-    console.log('newAppData : ');
-    console.log(this.newAppData);
-    console.log('Sending Job : ');
-
     if (!this.newAppData.name || !this.newAppData.url) {
       console.log('Fields can not be empty ! ');
       return;
+    }
+
+    if (this.appType === 'URL') {
+      this.newAppData.cuid = '';
+    } else {
+      this.newAppData.cuid = this.newAppData.url;
+      this.newAppData.url = '';
     }
 
     this.appService.createApp(this.newAppData).subscribe(

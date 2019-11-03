@@ -15,9 +15,6 @@ export class PostJobService {
   constructor(private http: HttpClient) {}
 
   createSchedule(postData) {
-    console.log('Just before post - postData: ');
-    console.log(JSON.stringify(postData));
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

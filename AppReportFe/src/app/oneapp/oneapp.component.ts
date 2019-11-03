@@ -10,11 +10,15 @@ export class OneappComponent implements OnInit {
   @Input() appData: OneApp;
   @Output() binClick = new EventEmitter();
 
+  appValue = ''; // will be alternatively cuid or url
+
   constructor() {}
 
   ngOnInit() {
-    console.log('appData : ');
-    console.log(this.appData);
+    this.appValue = this.appData.cuid;
+    if (!this.appValue) {
+      this.appValue = this.appData.url;
+    }
   }
 
   onBinClick() {

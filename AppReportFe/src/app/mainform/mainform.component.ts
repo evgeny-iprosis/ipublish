@@ -46,6 +46,7 @@ export class MainformComponent implements OnInit {
     const postData: any = {};
     Object.assign(postData, this.currSchedule);
     postData.url = this.currentApp.url;
+    postData.cuid = this.currentApp.cuid;
     postData.name = this.currentApp.name;
 
     this.service.createSchedule(postData).subscribe(
@@ -84,8 +85,6 @@ export class MainformComponent implements OnInit {
   setCurrentApp(id) {
     this.currentApp = this.apps.filter(appById)[0];
     this.currSchedule.appId = this.currentApp.id;
-    console.log('current app :');
-    console.log(this.currentApp);
     function appById(app) {
       return app.id === parseInt(id, 10);
     }
@@ -111,7 +110,7 @@ export class MainformComponent implements OnInit {
         this.apps = response;
         this.currentApp = this.apps[0];
         if (this.currSchedule.appId > 0) {
-          //not efault - real value
+          // not default - real value
           this.setCurrentApp(this.currSchedule.appId);
         }
         console.log('Mainform current app: ');
@@ -139,6 +138,14 @@ export class MainformComponent implements OnInit {
       return false;
     } else {
       return true;
+    }
+  }
+
+  appLegend() {
+    if (this.currentApp.url) {
+      return this.currentApp.url;
+    } else {
+      return 'CUID: ' + this.currentApp.cuid;
     }
   }
 

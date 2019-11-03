@@ -9,7 +9,8 @@ db.serialize(() => {
 	const sql =
 		'CREATE TABLE IF NOT EXISTS applications (id integer primary key,' +
 		'name VARCHAR(255),' +
-		'url VARCHAR(255)' +
+		'url VARCHAR(255),' +
+		'cuid VARCHAR(255)' +
 		')';
 	db.run(sql);
 });
@@ -26,9 +27,13 @@ class Application {
 		db.run(sql, id);
 	}
 
-	static add(application) {
-		const sql = 'INSERT INTO applications(name, url) VALUES(?,?)';
-		db.run(sql, application.name, application.url);
+	static add(application, errorCallback) {
+		const sql = 'INSERT INTO applications(name, url, cuid) VALUES(?,?,?)';
+		db.run(
+			sql,
+			[application.name, application.url, application.cuid],
+			errorCallback
+		);
 	}
 }
 
