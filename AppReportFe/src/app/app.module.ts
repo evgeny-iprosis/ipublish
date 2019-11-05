@@ -23,6 +23,7 @@ import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { YesNoDialogComponent } from './yes-no-dialog/yes-no-dialog.component';
 import { ApproveDialogComponent } from './approve-dialog/approve-dialog.component';
 import { RunsLogComponent } from './runs-log/runs-log.component';
+import { DbtestComponent } from './dbtest/dbtest.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RunsLogComponent } from './runs-log/runs-log.component';
     AppSchedulesComponent,
     YesNoDialogComponent,
     ApproveDialogComponent,
-    RunsLogComponent
+    RunsLogComponent,
+    DbtestComponent
   ],
   entryComponents: [YesNoDialogComponent, ApproveDialogComponent],
   imports: [

@@ -11,6 +11,7 @@ const Report = require('./models/appreport');
 const Application = require('./models/application');
 const Schedule = require('./models/schedule');
 const Run = require('./models/runs');
+const Role = require('./models/role');
 
 function sendReportSecure(args) {
 	let interval = args.interval;
@@ -104,14 +105,13 @@ app.post('/newcshedule', (req, res) => {
 		// TODO - get server automatically
 		// currenttly use iProsis BO server
 		let serverUrl = 'http://35.156.190.99:8080';
-		// TODO efine it in env
+		// TODO define it in env
 		let standardBOAppPrefix =
 			'BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=';
 		url = serverUrl + '/' + standardBOAppPrefix + newSchedule.cuid;
 
 		console.log('Run by UUID :');
 		console.log(url);
-		return;
 	}
 	if (newSchedule.user) {
 		url = url + '?USER=' + newSchedule.user;
@@ -176,4 +176,18 @@ app.get('/listschedules', (req, res) => {
 
 app.get('/listlogs', (req, res) => {
 	Run.all((err, runs) => res.status(200).json(runs));
+});
+
+// roles CRUD
+app.post('/newrole', (req, res) => {
+	let newRole = req.body;
+	Role.add(newRole, err => {
+		if (err) {
+			console.log('Error inserting role');
+			console.log(err.message);
+			res.status(500).json({ error: err.message });
+		} else {
+			res.status(201).json();
+		}
+	});
 });
