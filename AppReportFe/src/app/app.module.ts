@@ -24,6 +24,8 @@ import { YesNoDialogComponent } from './yes-no-dialog/yes-no-dialog.component';
 import { ApproveDialogComponent } from './approve-dialog/approve-dialog.component';
 import { RunsLogComponent } from './runs-log/runs-log.component';
 import { DbtestComponent } from './dbtest/dbtest.component';
+import { EditorqComponent } from './editorq/editorq.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { DbtestComponent } from './dbtest/dbtest.component';
     YesNoDialogComponent,
     ApproveDialogComponent,
     RunsLogComponent,
-    DbtestComponent
+    DbtestComponent,
+    EditorqComponent
   ],
   entryComponents: [YesNoDialogComponent, ApproveDialogComponent],
   imports: [
@@ -50,7 +53,8 @@ import { DbtestComponent } from './dbtest/dbtest.component';
     HttpClientModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    QuillModule.forRoot()
   ],
   providers: [PostJobService, TransFormService, AppserviceService, DatePipe],
   bootstrap: [AppComponent]

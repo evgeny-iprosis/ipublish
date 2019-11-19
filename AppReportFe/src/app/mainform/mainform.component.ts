@@ -20,6 +20,12 @@ export class MainformComponent implements OnInit {
   currentResolution = 0;
   topHeader = 'Set Report Schedule';
   isParams = false;
+  // todo TEMPORARY!   SHOULD BE IN SCHEDULE
+  width = 800;
+  height = 600;
+  useRole = true;
+  role = 'Admin';
+  roles = ['Admin', 'Developer', 'User', 'Manager'];
   intervalUnits = [
     {
       value: 60000,

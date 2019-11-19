@@ -1,15 +1,19 @@
+import { DbtestComponent } from './dbtest/dbtest.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { ReportsComponent } from './reports/reports.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainformComponent } from './mainform/mainform.component';
 import { RunsLogComponent } from './runs-log/runs-log.component';
+import { EditorqComponent } from './editorq/editorq.component';
 
 const routes: Routes = [
   { path: 'appform', component: MainformComponent },
   { path: 'schedules', component: ReportsComponent },
   { path: 'applications', component: ApplicationsComponent },
-  { path: 'logs', component: RunsLogComponent }
+  { path: 'logs', component: RunsLogComponent },
+  { path: 'dbtest', component: DbtestComponent },
+  { path: 'editor', component: EditorqComponent }
 ];
 
 @NgModule({
