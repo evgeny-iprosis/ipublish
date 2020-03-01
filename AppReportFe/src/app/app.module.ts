@@ -26,6 +26,7 @@ import { RunsLogComponent } from './runs-log/runs-log.component';
 import { DbtestComponent } from './dbtest/dbtest.component';
 import { EditorqComponent } from './editorq/editorq.component';
 import { QuillModule } from 'ngx-quill';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { QuillModule } from 'ngx-quill';
     ApproveDialogComponent,
     RunsLogComponent,
     DbtestComponent,
-    EditorqComponent
+    EditorqComponent,
+    ContactFormComponent
   ],
   entryComponents: [YesNoDialogComponent, ApproveDialogComponent],
   imports: [
