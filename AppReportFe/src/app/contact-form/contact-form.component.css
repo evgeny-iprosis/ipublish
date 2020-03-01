@@ -1,0 +1,11 @@
+.contactContainer {
+  position: absolute;
+  top: 10rem;
+  left: 0rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
