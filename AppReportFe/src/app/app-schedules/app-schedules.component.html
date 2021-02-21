@@ -1,0 +1,29 @@
+<div class="app">
+	<div class="appHeader" [class.expanded]="isExpanded" (click)="expandToggle()">
+		<span class="textHeader">{{appData.app.name}}</span>
+	</div>
+	<div class="schedules" [class.expanded]="isExpanded">
+		<div *ngFor="let schedule of appData.schedules; index as i" class="scheduleItem"
+			(click)="onScheduleClick(schedule)">
+			<div class="mail">
+				<div class="mailHeader header">E-Mail</div>
+				<div class="mailContent"> {{schedule.email}}</div>
+			</div>
+			<div class="start">
+				<div class="mailHeader header">Start:</div>
+				<div class="mailContent"> {{scheduleGetDate(schedule)}}</div>
+			</div>
+			<div class="interval">
+				<div class="mailHeader header">Interval: </div>
+				<div class="mailContent"> {{schedule.interval}}</div>
+			</div>
+			<div class="cancel" (click)="onCancel(schedule)">
+				Cancel
+			</div>
+
+
+
+		</div>
+	</div>
+
+</div>

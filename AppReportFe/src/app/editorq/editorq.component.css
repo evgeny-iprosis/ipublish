@@ -1,0 +1,8 @@
+.editorContainer {
+  position: absolute;
+  width: 74%;
+  height: 17rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}

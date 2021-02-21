@@ -1,0 +1,21 @@
+<div class="container">
+	<table class="logTable">
+		<tr>
+			<th>Id</th>
+			<th>Application Name</th>
+			<th>E_Mail</th>
+			<th>Date</th>
+		</tr>
+
+		<tr clacc="logRow" *ngFor="let log of logs">
+			<td>{{log.id}}</td>
+			<td>{{log.name}}</td>
+			<td>{{log.email}}</td>
+			<td>{{logGetDate(log.date)}}</td>
+		</tr>
+	</table>
+	<div class="buttons">
+		<button class="btn btn-info browse" routerLink="/schedules">Schedules</button>
+		<button class="btn btn-info browse" routerLink="/applications">Applications</button>
+	</div>
+</div>

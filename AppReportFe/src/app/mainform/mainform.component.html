@@ -1,0 +1,129 @@
+<div class="container">
+	<form>
+		<div class="form-row setApp">
+			<div class="form-group col-md-6">
+
+				<label for="setApplication">Set Application:</label>
+				<select id="sendInterval" name="setApplication" class="form-control" [value]="currentApp.id"
+					(change)=setCurrentAppByEvent($event)>
+					<option *ngFor="let app of apps" value="{{app.id}}">{{app.name}}</option>
+				</select>
+			</div>
+
+			<div class="col-md-6">
+				<span class="appUrl">
+					{{appLegend()}}
+				</span>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3">
+				<label for="appMail">E-Mail</label>
+				<input type="email" [(ngModel)]="currSchedule.email" class="form-control" id="appMail" name="appMail"
+					placeholder="reporting@email.com">
+			</div>
+
+			<div class="form-group col-md-2">
+				<label for="roles">Roles:</label>
+				<select id="roles" class="form-control" name="roles" [(ngModel)]="role">
+					<option *ngFor="let r of roles" value={r}>{{r}}</option>
+				</select>
+			</div>
+
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-2">
+				<label for="sendInterval">Interval:</label>
+				<input type="number" min="1" step="1" class="form-control" id="interval" name="interval"
+					[(ngModel)]="currSchedule.interval">
+			</div>
+
+			<div class="form-group col-md-2">
+				<label for="sendInterval">Time Unit:</label>
+				<select id="intervalUnit" class="form-control" name="intervalUnit"
+					[(ngModel)]="currSchedule.intervalUnit">
+					<option *ngFor="let unit of intervalUnits" value={{unit.value}}>{{unit.name}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="startingDate">Starting from:</label>
+				<input type="date" #myDate [value]="currSchedule.start | date:'yyyy-MM-dd'" class="form-control"
+					id="startingDate" name="startingDate" (change)="setStartingDate($event)">
+			</div>
+
+
+
+			<div class="form-group col-md-2">
+				<label for="width">Width:</label>
+				<input type="number" min="1" step="50" class="form-control" id="width" name="width" [(ngModel)]="width">
+			</div>
+
+			<div class="form-group col-md-2">
+				<label for="height">Height:</label>
+				<input type="number" min="1" step="50" class="form-control" id="height" name="height"
+					[(ngModel)]="height">
+			</div>
+
+
+
+
+
+		</div>
+
+		<div class="form-group">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" [(ngModel)]="useRole" id="useRole" name="useRole">
+				<label class="form-check-label" for="useRole">
+					Use Role
+				</label>
+			</div>
+			<br>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" [(ngModel)]="isParams" id="isParams" name="isParams">
+				<label class="form-check-label" for="isParams">
+					Additional Params
+				</label>
+			</div>
+		</div>
+
+		<div *ngIf="isParams" class="form-row moreParams">
+			<div class="form-group col-md-2"> For User:</div>
+			<div class="form-group col-md-6">
+				<input type="text" [(ngModel)]="currSchedule.user" class="form-control" id="user" name="user"
+					placeholder="User">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" [(ngModel)]="isSecure" id="gridCheck"
+					(click)="isSecureToggle()" name="isSecure">
+				<label class="form-check-label" for="gridCheck">
+					Secure run
+				</label>
+			</div>
+		</div>
+
+		<div *ngIf="isSecureGet()" class="form-row">
+
+			<div class="form-group col-md-6">
+				<label for="inputLogin">Login</label>
+				<input type="text" [(ngModel)]="currSchedule.login" class="form-control" id="inputLogin"
+					name="inputLogin" placeholder="Login">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="inputPassword">Password</label>
+				<input type="password" [(ngModel)]="currSchedule.password" class="form-control" id="inputPassword"
+					name="inputPassword" placeholder="Password">
+			</div>
+		</div>
+
+		<button *ngIf="showCreate()" (click)="createPost()" class="btn btn-primary">Create</button>
+		<button class="btn btn-info browse" routerLink="/schedules">Schedules</button>
+		<button class="btn btn-info browse" routerLink="/applications">Applications</button>
+		<button class="btn btn-info browse" routerLink="/logs">Logs</button>
+		<button class="btn btn-info browse" routerLink="/editor">Signature</button>
+
+	</form>
+</div>

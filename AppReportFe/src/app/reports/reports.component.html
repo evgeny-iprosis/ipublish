@@ -1,0 +1,7 @@
+<div class="wrapper">
+	<appschedules *ngFor="let item of allAppSchedules" [appData]="item" (scheduleClick)="onScheduleClick($event)">
+	</appschedules>
+	<button class="btn btn-primary browse" routerLink="/appform">New Schedule</button>
+	<button class="btn btn-info browse" routerLink="/applications">Applications</button>
+	<button class="btn btn-info browse" routerLink="/logs">Logs</button>
+</div>

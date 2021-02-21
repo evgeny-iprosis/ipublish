@@ -1,0 +1,11 @@
+.buttons {
+  margin: 26px !important;
+}
+
+.buttons > button {
+  margin: auto 8px;
+}
+
+h5 {
+  margin: 16px 0;
+}

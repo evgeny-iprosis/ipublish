@@ -1,0 +1,88 @@
+.app {
+  position: relative;
+  font-size: 1.2rem;
+  color: #777;
+  margin: 8px 0px;
+  background-color: white;
+  border-radius: 5px;
+  border: solid thin #bbbbbb;
+}
+
+.schedules {
+  position: relative;
+  overflow: auto;
+  max-height: 0;
+  transition: all 0.5s ease;
+  margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.schedules.expanded {
+  max-height: 500px;
+  margin-top: 16px;
+}
+
+.appHeader {
+  height: 48px;
+  line-height: 48px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-weight: 500;
+}
+
+.textHeader {
+  margin-left: 16px;
+}
+
+.topListbuffer {
+  border: solid thin lightgray;
+  margin: 16px, 0;
+}
+
+.appHeader:after {
+  content: "\002B";
+  color: #777;
+  font-weight: bold;
+  font-size: 1.5rem;
+  float: right;
+  margin-right: 16px;
+}
+
+.appHeader.expanded:after {
+  content: "\2212";
+  background-color: #ccc;
+}
+
+.appHeader.expanded {
+  background-color: #ccc;
+}
+
+.scheduleItem {
+  border-bottom: thin solid lightgrey;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.scheduleItem .header {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.scheduleItem {
+}
+
+.cancel {
+  margin-left: 8px;
+  margin-right: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: darkmagenta;
+}
+
+.cancel:hover {
+  opacity: 0.5;
+}

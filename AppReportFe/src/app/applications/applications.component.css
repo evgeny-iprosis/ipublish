@@ -1,0 +1,97 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 7rem;
+  padding-bottom: 16px;
+  background-color: rgba(236, 239, 241, 0.54);
+  overflow: auto;
+  max-width: 1024px;
+}
+
+.appWrapper {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.bottom {
+  position: relative;
+  margin-top: 24px;
+}
+
+.bottomItem {
+  position: absolute;
+}
+
+.appAdd {
+  right: 0;
+  height: 3rem;
+  width: 3rem;
+  line-height: 2.5rem;
+  font-size: 3rem;
+  font-weight: normal;
+  border-radius: 50%;
+  border: solid thin grey;
+  background-color: white;
+  color: #100b0b;
+  text-align: center;
+}
+
+.appAdd:hover {
+  cursor: pointer;
+}
+
+.newApp {
+  position: relative;
+  border: solid thin lightgrey;
+  border-radius: 5px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  padding: 16px;
+  padding-top: 32px;
+}
+
+.newAppHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0, -100%);
+}
+
+.cancel {
+  margin-left: 16px;
+}
+.save {
+  margin-left: 8px;
+}
+
+.scheduler > button {
+  margin-left: 8px;
+}
+
+.typeRadios {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  margin-right: 2rem;
+  transform: translate(0, 100%);
+  margin-bottom: 2rem;
+}
+
+.newAppInput {
+  margin-top: 2rem;
+}
+
+.typeCuid {
+  margin-right: 0.5rem;
+}
+
+.typeUrl {
+  margin-right: 0.5rem;
+  margin-left: 2rem;
+}
